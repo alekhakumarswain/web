@@ -1,0 +1,135 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <style>
+            
+
+#body{transition:1s;background-color:black;overflow:hidden;}
+.container{
+    position:absolute;
+    height:250pt;width:100%;
+    margin:auto;display:flex;
+    top:0;right:0;left:0;bottom:0;
+    background-color:transparent;
+    justify-content:center;align-items:center;
+}
+#display{
+    position:absolute;
+    height:70px;
+    width:100%;
+    top:-50pt;
+    background-color:black;
+    color:orange;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-weight:900;
+    overflow:hidden;
+    font-size:50px;
+    font-family: 'Saira Semi Condensed', sans-serif;
+    
+}
+#dsub,#d1,#d2,#d3,#dplus{
+    position:absolute;
+    top:20%;
+}
+#dplus{left:3%;}
+#d1{left:23%;}
+#d2{left:43%;}
+#d3{left:63%;}
+#d0{left:83%;}
+#d0,#d4,#d5,#d6,#dquo{
+    position:absolute;
+    top:40%;
+}
+#dquo{left:3%;}
+#d4{left:23%;}
+#d5{left:43%;}
+#d6{left:63%;}
+#dpro{left:83%;}
+#dpoint,#d7,#d8,#d9,#clearL{
+    position:absolute;
+    top:60%;
+}
+#clearL{left:63%;top:80%;}
+#dpoint{left:3%;}
+#d7{left:23%;}
+#d8{left:43%;}
+#d9{left:63%;}
+#d0{left:43%;top:80%;}
+#dplus{top:80%;left:23%;}
+#call{
+    top:115%;
+    position:absolute;
+    width:90%;
+    margin:auto;
+    left:0;
+    right:0;
+    height:40pt;
+    border-radius:50px;
+    background-color:#229954;
+}
+button{outline:none;color:white;height:50px;width:50px;border-radius:50%;background-color:#34495E;border:1px solid black;}
+button:active{background-color:black;}
+.keypad{
+    position:absolute;
+    height:220pt;
+    width:90%;
+    background-color:#566573;
+    z-index:-1;
+    top:45px;
+    border-radius:10px;
+}
+#dast{
+    position:absolute;
+    top:80%;left:8.5%;
+}
+#dhas{
+    position:absolute;
+    top:80%;right:9.5%;
+}
+        </style>
+    </head>
+    <body id="body">
+        <div class="container">
+            <div id="display"></div>
+            <button id="d0" onclick="join('0')">0</button>
+            <button id="d1" onclick="join('1')">1</button>
+            <button id="d2" onclick="join('2')">2</button>
+            <button id="d3" onclick="join('3')">3</button>
+            <button id="d4" onclick="join('4')">4</button>
+            <button id="d5" onclick="join('5')">5</button>
+            <button id="d6" onclick="join('6')">6</button>
+            <button id="d7" onclick="join('7')">7</button>
+            <button id="d8" onclick="join('8')">8</button>
+            <button id="d9" onclick="join('9')">9</button>    
+             <button id="dplus" onclick="join('+')">+</button>    
+             <button id="clearL" onclick="clearL()"><</button>
+            <button id="dast" onclick="join('*')">*</button>
+            <button id="dhas" onclick="join('#')">#</button>
+             <a href="tel:" id="pno"><button id="call" onclick="navigator.vibrate([100,50,100])">📞</button></a>
+             <div class="keypad"></div>
+            </div>
+            <script>
+                
+
+function join(arg){
+    document.getElementById('display').innerHTML+=arg;
+    navigator.vibrate(80);
+}
+function clearL(){
+    var y = document.getElementById('display').innerHTML;
+    document.getElementById('display').innerHTML=y.substring(0,y.length-1);
+    navigator.vibrate(80);
+}
+function call(){
+    document.getElementById("pno").href="tel:"+document.getElementById("display").innerHTML;
+}
+setInterval(call,1);
+            </script>
+    </body>
+</html>

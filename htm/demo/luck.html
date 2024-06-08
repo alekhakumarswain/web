@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Name Numerology</title>
+        <style>
+            body {
+    margin:0;
+    padding:0;
+}
+
+#container {
+    padding: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+        </div>
+    </body>
+    <script>
+        onload = function() {
+   			 var input = prompt('Enter your name: ');
+ 			   input = input !== null ? input : 'nothing';
+  			 var letterNumbers = [];
+    		input = input.replace(/[^A-Za-z]/g, '');
+    		var sum = getSumOfLetters( input );
+    		var totalSum = sum % 9 === 0 ? 9 : sum % 9;
+    		var content = "<p>" + "Input: " + input.toUpperCase() + "</p>";
+    		content += "<p>" + input.toUpperCase().split('').join(' + ') + "</p>";
+    		content += "<p>" + letterNumbers.join(' + ') + "</p>";
+    		content += "<p>" + "Letter sum: " + sum + "</p>";
+    		content += "<p>" + "Cross sum: " + totalSum  + "</p>";
+    		if(totalSum==1){
+    				var val = ["kinglike"," kind"," royal"," disciplined"," authoritative"," strong","riginal"];
+       				var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==2){
+					var val=["queenlike"," royal"," attractive"," everchanging"," delicate"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==3){
+					var val=["spiritual"," counseling", "friendly", "self-centered", "disciplined"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==4){
+					var val=["rebellious", "impulsive", "short-tempered", "secretive"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==5){
+					var val=["princely", "entertaining"," wily"," intelligent", "sensitive"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==6){
+					var val=["romantic", "slow"," sensual", "sweet spoken", "diplomatic","	manipulative"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==7){
+					var val=["mystical"," dreamlike", "intuitive", "inventive"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==8){
+					var val=["wise"," malefic"," servant-like"," laborious"," struggling"," suffering"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			if(totalSum==9){
+					var val=["warlike"," strong"," rough"," rustic"," perfectionist"," doubting","fighting"," alienating"," discriminating"];
+					var random = Math.floor(Math.random() * (val.length));
+					content += "<p>" + "BEHAVIOUR: " + val[random]+"," +val[random+1]+"," +val[random-1]  + "</p>";
+				}
+			var cont = document.getElementById('container').innerHTML = content;
+			
+    	function getSumOfLetters( name ) {
+    	    var sum = 0;
+ 	        for (var i = 0; i < name.length; i++)  {
+            	letterNumber = parseInt(name.toUpperCase().charCodeAt(i), 10 ) - 64;
+            	sum += letterNumber;
+            	letterNumbers[i] = letterNumber.toString();
+       			 }
+      		  return sum;
+  			  }
+			};
+
+    </script>
+</html>

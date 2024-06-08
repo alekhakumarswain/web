@@ -1,0 +1,102 @@
+/* Add your custom styles here */
+        /* For example: */
+        /* Add background color to the navbar */
+        nav {
+            background-color: rgba(228, 77, 38, 0.3);
+            position: fixed;
+        }
+
+        /* Style the logo */
+        .navbar-brand img {
+            height: 7vh; /* Adjust the height as needed */
+            width: auto;
+        }
+
+        .blood-bond {
+            font-family: "Space Mono", cursive;
+            font-size: 7vh;
+            font-weight: bold;
+            color: #17739d; /* Change to your desired color */
+            margin-right: 10px;
+        }
+
+        /* Style the JOIN and LOGIN icons */
+        .navbar-nav .nav-item .nav-link i {
+            margin-right: 5px;
+        }
+
+        button.navbar-toggler {
+            background-color: rgb(228, 77, 38);
+        }
+
+        /* Change color for JOIN icon */
+        .navbar-nav .nav-item .nav-link .fa-user-plus .fa-sign-in-alt {
+            color: #d42424; /* Change to your desired color */
+        }
+
+        /* Change color for LOGIN icon */
+        .navbar-nav .nav-item .nav-link {
+            color: #c61f1f; /* Change to your desired color */
+        }
+
+        .main {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .custom-container {
+            padding: 20px;
+            border-radius: 18px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            background: url(52525468.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: antiquewhite;
+            align-items: center;
+        }
+
+        .custom-container:hover{
+            -webkit-box-shadow: 7px 11px 25px 18px rgba(0,0,0,0.56);
+            -moz-box-shadow: 7px 11px 25px 18px rgba(0,0,0,0.56);
+             box-shadow: 7px 11px 25px 18px rgba(0,0,0,0.56);
+        }
+
+        .custom-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .club-form{
+            margin: 0;
+            padding: 0;
+            height: 120vh;
+            color: #17739d;
+            background: url('5153829.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
+
+        fieldset{
+            border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+        }
+    #LoginForm{
+        display: block;
+        position: absolute;
+        margin-top: auto;
+        align-items: center;
+        margin: auto;
+        margin: 0;
+    }
+

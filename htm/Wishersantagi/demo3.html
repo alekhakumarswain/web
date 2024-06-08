@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<title></title>
+</head>
+<body>
+	<video id="video" loop type="video/mp4">
+	<source >
+	</video>
+</body>
+	<script type="text/javascript">
+	window.addEventListener("load",function(){
+	var load_screen = document.getElementById("load_screen");
+	document.body.removeChild(load_screen);
+	})
+	var vdo=document.getElementById("video");
+	vdo.style.display="none";
+	window.addEventListener("mouseover",play);
+	window.addEventListener("click",play);
+	function play() { 
+	var vdo=document.getElementById("video");
+	vdo.style.display="block";
+	vdo.src="video.mp4";
+	vdo.play();
+	}
+		Swal.fire('You annoy me more than anyone else I know.🙈And I want to spend every irritating moment of this life with you @NAME@')
+	</script>
+</html>

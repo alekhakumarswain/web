@@ -1,0 +1,163 @@
+<!-- Created by Aanisha Bhattacharyya-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <style>
+            /* Created by Aanisha Bhattacharyya */
+
+body 
+{
+    padding:0;
+    margin:0;
+    background-color:#212122;
+}
+#con
+{
+    position:absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    height:50%;
+    width:80%;
+    background-color:black;
+    padding:20px;
+    border-radius:10%;
+    border:1vw cyan double;
+    box-shadow: 0 0 0 15px #000000;
+    font-family:Quantico;
+
+}
+#t
+{
+    position:relative;
+    top:30px;
+    color:white;
+}
+#da,#w
+{
+    position:relative;
+    top:150px;
+    display:none;
+    height:15vw;
+    width:27vw;
+    font-size:8vw;
+    background:none;
+    outline:none;
+    border:1vw cyan double;
+    color:red;
+    font-family:Quantico;
+}
+#w
+{
+    font-size:3vw;
+    position:relative ;
+    top:110px;
+    left:35%;
+}
+ul li
+{
+    color:white;
+    font-size:12px;
+    
+}
+h2
+{
+    font-family:Quantico;
+    font-size:7vw;
+    color:white;
+    text-shadow:0 0 10px white;
+}
+#det
+{
+    display:none;
+}
+#wm 
+{
+    display:none;
+}
+        </style>
+    </head>
+    <body>
+    <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
+     
+    <h2 align="center">Details</h2>
+       <div id="con">
+           <div id="t">
+               <p></p>
+           </div>
+           <div align="center">
+           <button id="da" onclick="dat()">Data</button>
+           </div>
+           <div id="det">
+               <ul>
+                   <li id="l1"></li>
+                   <li id="l2"></li>
+                   <li id="l3"></li>
+                   <li id="l4"></li>
+                   <li id="l5"></li>
+                   <li id="l6"></li>
+                   <li id="l7"></li>
+                   <li id="l8"></li>
+                   <li id="l9"></li>
+                   <li id="l10"></li>
+                   <li id="l11"></li>
+               </ul>
+           </div>
+          
+       </div> 
+       <script>
+           // Created by Aanisha Bhattacharyya
+
+//$.getJSON('https://ipapi.co/json/', function(data) { document.getElementById("l1").innerHTML=(JSON.stringify(data, null, 2)); });
+alert("May take time for details to load.Please be patient.")
+var text="I can predict all things about you.Dare to try out..."
+    var word = text.split("");
+var i = 0;
+var interval = setInterval(writeText, 80 );
+function writeText() {
+    var p = document.getElementsByTagName("p")[0];
+    if (i < word.length) {
+        p.innerHTML += word[i];
+        i++;
+    } else {
+        clearInterval(interval);
+         document.getElementById("da").style.display="block";
+  
+  } 
+}
+function dat()
+{
+   navigator.vibrate(700); document.getElementById("da").style.display="none";
+    document.getElementById("t").style.display="none";
+    document.getElementById("det").style.display="block";
+    
+    $.getJSON('https://ipapi.co/json/', function(data) { //console.log(JSON.stringify(data, null, 1)); 
+    
+    document.getElementById("l1").innerHTML="IP:" +JSON.stringify(data.ip, null, 1);
+   document.getElementById("l2").innerHTML="City:" +JSON.stringify(data.city, null, 1); 
+   
+  document.getElementById("l3").innerHTML="Region:" +JSON.stringify(data.region, null, 1); 
+     document.getElementById("l4").innerHTML="Country:" +JSON.stringify(data.country_name, null, 1);
+     
+     document.getElementById("l5").innerHTML="Postal Code:" +JSON.stringify(data.postal, null, 1);
+     document.getElementById("l6").innerHTML="Latitude:" +JSON.stringify(data.latitude, null, 1);
+     
+     document.getElementById("l7").innerHTML="Longitude:" +JSON.stringify(data.longitude, null, 1);
+     
+     document.getElementById("l8").innerHTML="Country Code:" +JSON.stringify(data.country_calling_code, null, 1);
+     
+     document.getElementById("l9").innerHTML="Currency:" +JSON.stringify(data.currency, null, 1);
+     
+     document.getElementById("l10").innerHTML="TimeZone:" +JSON.stringify(data.timezone, null, 1);
+     
+     document.getElementById("l11").innerHTML="Network Provider:" +JSON.stringify(data.org, null, 1);
+    });
+}
+       </script>
+    </body>
+</html>

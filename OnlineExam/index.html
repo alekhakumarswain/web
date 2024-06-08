@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS with Sass */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <button class="btn btn-primary" id="startExamBtn">Start Exam</button>
+</div>
+
+<div class="popup" id="examPopup">
+    <div class="popup-content">
+        <h2>Online Exam</h2>
+        <div id="questionsContainer"></div>
+        <button class="btn btn-success mt-3" id="submitExamBtn">Submit Exam</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Sample questions in JSON format
+    const sampleQuestions = [
+        {
+            "question": "What is the capital of France?",
+            "options": ["Paris", "London", "Berlin", "Rome"],
+            "correctOption": "Paris"
+        },
+        {
+            "question": "Which planet is known as the Red Planet?",
+            "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+            "correctOption": "Mars"
+        }
+    ];
+
+    // Function to generate questions HTML
+    function generateQuestionsHTML(questions) {
+        let questionsHTML = '';
+        questions.forEach((q, index) => {
+            questionsHTML += `
+                <div class="mb-3">
+                    <h5>Question ${index + 1}:</h5>
+                    <p>${q.question}</p>
+                    <div class="form-check">
+                        ${q.options.map(option => `
+                            <input class="form-check-input" type="radio" name="question${index}" value="${option}">
+                            <label class="form-check-label">${option}</label><br>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        });
+        return questionsHTML;
+    }
+
+    // Function to start the exam
+    $('#startExamBtn').click(function() {
+        $('#examPopup').show();
+        $('#questionsContainer').html(generateQuestionsHTML(sampleQuestions));
+    });
+
+    // Function to submit the exam
+    $('#submitExamBtn').click(function() {
+        $('#examPopup').hide();
+        // Here you can add code to submit the exam
+        alert("Exam submitted successfully!");
+    });
+
+    // Prevent closing or switching tabs during the exam
+    $(window).on('beforeunload', function() {
+        return "Are you sure you want to leave? Your exam will be submitted.";
+    });
+
+    $(window).on('blur', function() {
+        alert("You cannot switch tabs during the exam. Your exam will be submitted.");
+        $('#submitExamBtn').click();
+    });
+</script>
+
+</body>
+</html>

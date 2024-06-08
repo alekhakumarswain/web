@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+    text-align:center ;
+    border:5px solid pink;
+    height:394px;
+    position:relative ;
+    top:34px;
+}
+b{
+    color:white;
+    background-color:;
+}
+div{
+    background-color:black;
+    height:180px;
+    width:150px;
+    position:relative ;
+    left:150px;
+    top:-174px;
+    border-radius:20px 20px 20px 20px ;
+    border: 10px solid blue;
+    font-style:italic ;
+    
+}
+
+img{
+    height:154px;
+    position:relative ;
+    left:-105px;
+    top:20px;
+}
+h1{
+    font-size:55px;
+    color:red;
+}
+</style>
+</head>
+<body>
+
+<h1>CLASS ROOM</h1>
+<br>
+
+<b onclick="typeWriter()" bgcolor="blue"></p>
+<img src=" https://steamuserimages-a.akamaihd.net/ugc/455236206113139428/64B99453442074C45F4C30BFEF820353E29152DB/ ">
+<div>
+<i>
+<b id="demo"  ></b> </i>
+</div>
+
+<script>
+    var i = 0;
+var txt = "I  Wrote your name in the sand  but the waves washed it away,then I wrote it in the sky but the wind blew it away,So I wrote it in my heart and that's where it will stay. ";
+
+var speed = 150;
+alert ("Touch the black board");
+function typeWriter() {
+  
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+   setTimeout(typeWriter, speed);
+    /*window.navigator.vibrate(900000000000000);*/
+  
+}
+</script>
+</body>
+</html>

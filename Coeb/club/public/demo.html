@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>College Of Engineering Bhubaneswar CLUB Registration Form</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo on the left side 
+            <a class="navbar-brand" href="#">
+                <img src="https://www.koustuvgroup.ac.in/images/kgi-silver-jubli-Logo.png" alt="Your Logo">
+            </a>-->
+            <span class="blood-bond"><u>Trojan</u> </span>
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- JOIN and LOGIN icons on the right side -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html"><i class="fas fa-user-plus"></i> JOIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i> LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main">
+        <!-- Responsive Container -->
+        <div class="container custom-container">
+            <div class="row club-form">
+                <!-- Image on the left, Content on the right for desktop -->
+                <div class="col-md-6" style="align-items: center;display: block;margin-top: auto;margin-bottom: auto;">
+                    <img src="side.png"  alt="Your Image" class="img-fluid custom-image">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="text-center">College Of Engineering Bhubaneswar <br/><u> Club Registration Form</u></h2>
+
+                    <form id="clubRegistrationForm">
+                        <div id="page1">
+                            <h3>Personal Information</h3>
+                            <div class="form-group">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fullName">Date Of Birth:</label>
+                                <input type="date" class="form-control" id="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number:</label>
+                                <input type="tel" class="form-control" id="contactNumber" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailAddress">Email Address:</label>
+                                <input type="email" class="form-control" id="emailAddress" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registrationNumber">Registration Number:</label>
+                                <input type="text" class="form-control" id="registrationNumber" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department:</label>
+                                <select class="form-control" id="department" required>
+                                    <option value="CSE">Computer Science and Engineering (CSE)</option>
+                                    <option value="EE">Electrical Engineering (EE)</option>
+                                    <option value="ME">Mechanical Engineering (ME)</option>
+                                    <option value="ETC">Electronics and Telecommunication Engineering (ETC)</option>
+                                    <option value="CIVIL">Civil Engineering (CIVIL)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="year">Year:</label>
+                                <select class="form-control" id="year" required>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary float-right" onclick="showPage(2)">Next
+                                ></button>
+                        </div>
+
+                        <div id="page2" style="display: none;">
+                            <h3>Club Preferences</h3>
+                            <div class="form-group">
+                                <label>Select the Club(s) you are interested in:</label>
+                                <label>You can Register for only two  club</label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input clubname" id="sportsClub" value="Sports Club">
+                                    <label class="form-check-label" for="sportsClub">Sports Club</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input clubname" id="technicalClub"
+                                        value="Technical Club">
+                                    <label class="form-check-label" for="technicalClub">Technical Club</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input clubname" id="culturalClub"
+                                        value="Cultural Club">
+                                    <label class="form-check-label" for="culturalClub">Cultural Club</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input clubname" id="socialWelfareClub"
+                                        value="Social & Welfare Club">
+                                    <label class="form-check-label" for="socialWelfareClub">Social & Welfare
+                                        Club</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="clubReason">Why do you want to join the club(s)? (Optional):</label>
+                                <textarea class="form-control" id="clubReason" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="skillsExperience">What skills or experiences do you hope to gain from
+                                    participating in the club(s)? (Optional):</label>
+                                <textarea class="form-control" id="skillsExperience" rows="3"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-secondary float-left" onclick="showPage(1)"><
+                                Previous</button>
+                            <button type="button" class="btn btn-primary float-right" onclick="showPage(3)">Next
+                                ></button>
+                        </div>
+
+                        <div id="page3" style="display: none;">
+                            <h3>Club Interests</h3>
+                            <p>Select your interests based on club preferences:</p>
+
+                            <div id="dynamicClubPreferences" style="display: none;">
+                                <!-- Dynamic Club Preferences will be inserted here based on selection -->
+                            </div>
+
+                            <button type="button" class="btn btn-secondary float-left" onclick="showPage(2)"><
+                                Previous</button>
+                            <button type="button" class="btn btn-primary float-right" onclick="showPage(4)">Next
+                                ></button>
+                        </div>
+
+                        <div id="page4" style="display: none;">
+                            <h3>Declaration</h3>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="declarationCheck" required>
+                                    <label class="form-check-label" for="declarationCheck">I hereby confirm that all
+                                        the information provided above is accurate, and I understand the
+                                        responsibilities and commitments associated with joining the club(s). I agree
+                                        to abide by the rules and regulations set forth by the college and the
+                                        respective club(s).</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="place">Reference Id:(If Any)</label>
+                                <input type="text" class="form-control" id="place" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <button type="button" class="btn btn-secondary float-left" onclick="showPage(3)"><
+                                Previous</button>
+                            <button type="submit" class="btn btn-success float-right">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+    <script src="script.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+    
+        document.addEventListener('DOMContentLoaded', function () {
+          addEventListeners();
+    
+          // Firebase configuration
+          const firebaseConfig = {
+        apiKey: "AIzaSyAuwSWEbnAjQQXBkFUTN1_FG9I69ZRMiM0",
+        authDomain: "coeb-farwell.firebaseapp.com",
+        projectId: "coeb-farwell",
+        storageBucket: "coeb-farwell.appspot.com",
+        messagingSenderId: "789337148979",
+        appId: "1:789337148979:web:5afdd8c55b3fd91a8f1d46",
+        measurementId: "G-NGSH11YLH3"
+      };
+    
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const auth = getAuth(app);
+          const database = getDatabase(app);
+    
+          // Add event listener to the form submission
+          document.getElementById('clubRegistrationForm').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+    
+            // Get form values
+            const registrationNumber = document.getElementById('registrationNumber').value;
+            const dob = document.getElementById('dob').value;
+    
+            // Check for required fields
+            if (!registrationNumber || !dob) {
+              alert("Please fill out all the required details.");
+            } else {
+              // Create new user with email and password
+              createUserWithEmailAndPassword(auth, `${registrationNumber}@example.com`, dob)
+                .then((userCredential) => {
+                  const user = userCredential.user;
+                  console.log('User registered successfully:', user);
+    
+                  // Proceed with saving form data to the database
+                  saveFormDataToDatabase();
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.error('Error creating user:', errorMessage);
+                  alert('An error occurred while registering. Please try again later.');
+                });
+            }
+          });
+    
+          // Function to save form data to the database
+          function saveFormDataToDatabase() {
+            // Get form values
+            const fullName = document.getElementById('fullName').value;
+            const dob = document.getElementById('dob').value;
+            const contactNumber = document.getElementById('contactNumber').value;
+            const registrationNumber = document.getElementById('registrationNumber').value;
+            const department = document.getElementById('department').value;
+            const year = document.getElementById('year').value;
+            const emailAddress = document.getElementById('emailAddress').value;
+            const clubReason = document.getElementById('clubReason').value;
+            const skillsExperience = document.getElementById('skillsExperience').value;
+            const referenceId = document.getElementById('place').value;
+            const date = document.getElementById('date').value;
+    
+            // Get selected clubs
+            const selectedClubs = [];
+            const clubnameCheckboxes = document.querySelectorAll('.clubname');
+            clubnameCheckboxes.forEach(function (checkbox) {
+              if (checkbox.checked) {
+                selectedClubs.push({
+                  club: checkbox.value
+                });
+              }
+            });
+    
+            // Get selected preferred clubs
+            const selectedPreferredClubs = [];
+            const preferedClubCheckboxes = document.querySelectorAll('.preferedclub');
+            preferedClubCheckboxes.forEach(function (checkbox) {
+              if (checkbox.checked) {
+                selectedPreferredClubs.push({
+                  club: checkbox.value
+                });
+              }
+            });
+    
+            // Create new applicant object with user input values
+            const newApplicant = {
+              registrationNumber: parseInt(registrationNumber),
+              department: department.toLowerCase(),
+              year: parseInt(year),
+              emailAddress: emailAddress,
+              referenceId: referenceId,
+              date: date,
+              selectedClubs: selectedClubs,
+              selectedPreferredClubs: selectedPreferredClubs
+            };
+    
+            console.log('New applicant:', newApplicant);
+    
+            // Push the form data to the database without generating Firebase key
+            set(ref(database, 'users/' + registrationNumber), {
+              fullName: fullName,
+              dob: dob,
+              contactNumber: contactNumber,
+              registrationNumber: registrationNumber,
+              department: department,
+              year: year,
+              emailAddress: emailAddress,
+              clubReason: clubReason,
+              skillsExperience: skillsExperience,
+              selectedClubs: selectedClubs,
+              selectedPreferredClubs: selectedPreferredClubs,
+              referenceId: referenceId,
+              date: date
+            }).then(() => {
+              // Reset the form after successful submission
+              document.getElementById('clubRegistrationForm').reset();
+              // Show a success message or redirect to a thank you page
+              alert('Form submitted successfully!');
+            }).catch((error) => {
+              // Handle errors
+              console.error('Error submitting form:', error);
+              alert('An error occurred while submitting the form. Please try again later.');
+            });
+          }
+    
+          // Function to add event listeners
+          function addEventListeners() {
+            // Add event listeners if needed
+          }
+        });
+      </script>
+
+</body>
+
+</html>

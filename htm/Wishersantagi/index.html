@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>🎅WISHER 🎁 SANTAGI🎅</title>
+        <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        
+         
+         <style>
+            
+            
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
+
+html, body,#load {
+    height: 100%;
+    background-color: rgba(23,45,56,0.4);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    width: 50%;
+    max-width: 365px;
+    margin: 0 auto;
+    top: 50%;
+}
+.heart {
+    position: relative;
+    width: 50%;
+    padding-bottom: 50%;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%) rotate(-135deg);
+    -webkit-transform: translate(-50%, -50%) rotate(-135deg);
+    -o-transform: translate(-50%, -50%) rotate(-135deg);
+    -ms-transform: translate(-50%, -50%) rotate(-135deg);
+    transform: translate(-50%, -50%) rotate(-135deg);
+    background-color: #ff4351;
+    animation: anim 4s linear infinite;
+    }
+    @keyframes anim{
+    0%,20%
+    {
+    background-color: white;
+    }
+    20%,40%
+    {
+    background-color: aqua;
+    }
+    40%,60%
+    {
+    background-color: pink;
+    }
+    60%,80%
+    {
+    background-color: red;
+    }
+    80%,100%
+    {
+    background-color: green;
+    }
+    }
+
+.heart:before,
+.heart:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background-color: inherit;
+}
+.heart:before {
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-animation:  move-h 4s infinite;
+    -moz-animation:     move-h 4s infinite;
+    -o-animation:       move-h 4s infinite;
+    animation:          move-h 4s infinite;
+}
+.heart:after {
+    left: 50%;
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -webkit-animation:  move-v 4s -1s infinite;
+    -moz-animation:     move-v 4s -1s infinite;
+    -o-animation:       move-v 4s -1s infinite;
+    animation:          move-v 4s -1s infinite;
+}
+
+@-webkit-keyframes move-h {
+    0%    { left: -50%; }
+    25%   { left: 50%; }
+    50%   { left: 50%; }
+    75%   { left: -50%; }
+    100%  { left: -50%; }
+}
+@-moz-keyframes move-h {
+    0%    { left: -50%; }
+    25%   { left: 50%; }
+    50%   { left: 50%; }
+    75%   { left: -50%; }
+    100%  { left: -50%; }
+}
+@-o-keyframes move-h {
+    0%    { left: -50%; }
+    25%   { left: 50%; }
+    50%   { left: 50%; }
+    75%   { left: -50%; }
+    100%  { left: -50%; }
+}
+@keyframes move-h {
+    0%    { left: -50%; }
+    25%   { left: 50%; }
+    50%   { left: 50%; }
+    75%   { left: -50%; }
+    100%  { left: -50%; }
+}
+
+
+@-webkit-keyframes move-v {
+    0%    { top: -50%; }
+    25%   { top: 50%; }
+    50%   { top: 50%; }
+    75%   { top: -50%; }
+    100%  { top: -50%; }
+}
+@-moz-keyframes move-v {
+    0%    { top: -50%; }
+    25%   { top: 50%; }
+    50%   { top: 50%; }
+    75%   { top: -50%; }
+    100%  { top: -50%; }
+}
+@-o-keyframes move-v {
+    0%    { top: -50%; }
+    25%   { top: 50%; }
+    50%   { top: 50%; }
+    75%   { top: -50%; }
+    100%  { top: -50%; }
+}
+@keyframes move-v {
+    0%    { top: -50%; }
+    25%   { top: 50%; }
+    50%   { top: 50%; }
+    75%   { top: -50%; }
+    100%  { top: -50%; }
+}
+.title{
+	
+	}
+.a1{
+	font-size:25px;
+	animation:move-a1 2s linear infinite;
+	color:brown;
+	text-shadow: red 3px 0 1px;
+	}
+.a2{
+	font-size:25px;
+	animation:move-a2 2s linear infinite;
+	color:aqua;
+	text-shadow: red 3px 0 1px;
+	}
+.a3{
+	font-size:25px;
+	animation:move-a3 2s linear infinite;
+	color:blue;
+	text-shadow: red 3px 0 1px;
+	}
+.a4{
+	font-size:25px;
+	animation:move-a4 2s linear infinite;
+	color:green;
+	text-shadow: red 3px 0 1px;
+	}
+.a5{
+	font-size:25px;
+	animation:move-a5 2s linear infinite;
+	color:yellow;
+	text-shadow: red 3px 0 1px;
+	}
+.a6{
+	font-size:25px;
+	animation:move-a6 2s linear infinite;
+	color:purple;
+	padding-right:23px;
+	text-shadow: red 3px 0 1px;
+	}
+.a7{
+	font-size:25px;
+	animation:move-a7 2s linear infinite;
+	color:red;
+	text-shadow: red 3px 0 1px;
+	}
+.a8{
+	font-size:25px;
+	animation:move-a8 2s linear infinite;
+	color:white;
+	text-shadow: red 3px 0 1px;
+	}
+.a9{
+	font-size:25px;
+	animation:move-a9 2s linear infinite;
+	color:grey;
+	text-shadow: red 3px 0 1px;
+	}
+.a10{
+	font-size:25px;
+	animation:move-a10 2s linear infinite;
+	color:pink;
+	text-shadow: red 3px 0 1px;
+	}
+.a11{
+	font-size:25px;
+	animation:move-a11 2s linear infinite;
+	color:green;
+	text-shadow: white 3px 0 1px;
+	}
+.a12{
+	font-size:25px;
+	animation:move-a12 2s linear infinite;
+	color:blue;
+	text-shadow: aqua 3px 0 1px;
+	}
+.a13{
+	font-size:25px;
+	animation:move-a13 2s linear infinite;
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+		@keyframes move-a1{
+		0%,20%
+		{
+		color:aqua;
+		text-shadow: white 3px 0 1px;
+		font-size:20px;
+		}
+		20%,40%
+		{
+		color:pink;
+		text-shadow: yellow 3px 0 10px;
+		font-size:15px;
+		}
+		40%,60%
+		{
+		color:yellow;
+		text-shadow: blue 3px 0 1px;
+		font-size:10px;
+		}
+		60%,80%
+		{
+		color:blue;
+		text-shadow: white 3px 0 10px;
+		font-size:5px;
+		}
+		80%,100%
+		{
+		color:white;
+		text-shadow: green 3px 0 10px;
+		font-size:0px;
+		}
+		}
+		
+ @keyframes move-a2{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a3{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a4{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a5{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a6{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a7{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	}}
+@keyframes move-a8{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:pink;
+	text-shadow: silver 3px 0 10px;
+	}}
+@keyframes move-a9{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:red;
+	text-shadow: silver 3px 0 10px;
+	}}
+@keyframes move-a10{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:green;
+	text-shadow: red 3px 0 10px;
+	}}
+@keyframes move-a11{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}}
+@keyframes move-a12{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:aqua;
+	text-shadow: green 3px 0 10px;
+	}}
+@keyframes move-a13{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:purple;
+	text-shadow: green 3px 0 10px;
+	}}
+#title{
+	position:relative;
+	background-color:;
+	top:275px;
+}
+
+#cont{
+    display:none;
+}
+#frm{
+	width:100%;
+	height:100%;
+}
+            #ele1{
+            left:10vw;
+            animation:anim 1.9s linear infinite;
+            transform:scale(1.4);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            
+            }
+            #ele2{
+            left:15vw;
+            animation:anim 1.2s linear infinite;
+            transform:scale(1.3);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele3{
+            left:36vw;
+            animation:anim 1.5s linear infinite;
+            transform:scale(2);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele4{
+            left:70vw;
+            animation:anim 4s linear infinite;
+            transform:scale(0.65);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele5{
+            left:76vw;
+            animation:anim 3.2s linear infinite;
+            transform:scale(0.8);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele6{
+            left:52vw;
+            animation:anim 2s linear infinite;
+            transform:scale(1.3);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele7{
+            left:90vw;
+            animation:anim 1.8s linear infinite;
+            transform:scale(1.4);
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            #ele8{
+            left:6vw;
+            animation:anim 3.1s linear infinite;
+            color:black;
+            position:absolute;
+            height:0px;
+            font-size:20px;
+            }
+            @keyframes anim{
+            0%{
+            bottom:-20px;
+            }
+            100%{
+            bottom:100vh;
+            }
+            }
+        </style>
+    </head>
+    	<div id="ele1">🎂</div>
+    	<div id="ele2">🎂</div>
+    	<div id="ele3">🎂</div>
+    	<div id="ele4">🎂</div>
+    	<div id="ele5">🎂</div>
+    	<div id="ele6">🎂</div>
+    	<div id="ele7">🎂</div>
+    	<div id="ele8">🎂</div>
+    <body id="bd">
+    <audio controls style=" display:none;" src="back.mp3"  loop="loop" id="music">
+    </audio>
+    <script type="text/javascript">
+    	setTimeout(function(){
+    			document.getElementById("load").style.display = "none"; 
+   			 	document.getElementById("data").style.display = "block"; }, 1000);
+   
+    	
+    
+    	
+    </script>
+    <div id="load"style="display:block;">
+<div class="container">
+  <div class="heart"></div>
+</div>
+<div class="title">
+   <center>
+   	 <b class="a1">W</b>
+	 <b class="a2">I</b>
+	 <b class="a3">S</b>
+	 <b class="a4">H</b>
+	 <b class="a5">E</b>
+	 <b class="a6">R</b>
+	 <b class="a7">S</b>
+	 <b class="a8">A</b>
+	 <b class="a9">N</b>
+	 <b class="a10">T</b>
+	 <b class="a11">A</b>
+	 <b class="a12">G</b>
+	 <b class="a13">I</b>
+   </center>
+</div>
+</div>
+
+
+<div id="data" style="background-color:white;height:100%;display:none;">
+	<div style="background-color:yellow;width:100%;position:absolute;"class ="navbar">
+		<center>
+			<b class="a1">W</b>
+			<b class="a2">I</b>
+			<b class="a3">S</b>
+			<b class="a4">H</b>
+			<b class="a5">E</b>
+			<b class="a6">R</b>
+			<b class="a7">S</b>
+			<b class="a8">A</b>
+			<b class="a9">N</b>
+			<b class="a10">T</b>
+			<b class="a11">A</b>
+			<b class="a12">G</b>
+			<b class="a13">I</b>
+		</center></div>
+			<div class="hrscrl">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+				<img class="avtr" src="">
+			</div>
+		<center>
+			 <img src="http://www.animatedimages.org/data/media/49/animated-birthday-image-0015.gif" alt="HAPPY BIRTHDAY TO YOU!!" width="90%" />
+		</center>
+	<iframe id="frm" src="birthday/cake.html">
+	
+	</iframe>	
+	<iframe id="frm" src="birthday/bro.html">
+				
+	</iframe>	
+</div>
+	<audio id="audio">
+	<source>
+	</audio>
+    </body>
+    <script type="text/javascript">
+    	window.addEventListener("mouseover",play);
+    	window.addEventListener("click",play);
+    	function play() { 
+    	var msc=document.getElementById("audio");
+    	msc.style.display="none";
+    	msc.src="audio/bdy.mp3";
+    	msc.play();
+    	}
+    </script>
+</html>

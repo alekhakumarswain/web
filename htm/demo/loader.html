@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="vieport" content="width=device-width,initial-scale=1.0">
+<style>
+    
+   body{
+       background-color:black;
+   }
+            .position{
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%,-50%);
+                justify-content: center;
+                display:grid;
+            }
+            .loader{
+                width: 100px;
+                height: 100px;
+                border:20px solid transparent;
+                border-radius:200px;
+                border-top: 20px solid #555;
+                border-bottom: 20px solid #555;
+                animation: loader1 1s infinite linear;
+                animation-direction: reverse;
+            }
+            .loader::before{
+                margin-top: 0px;
+                margin-left: 0px;
+                content: "";
+                position: absolute;
+                width: 59px;
+                height: 59px;
+                border:21px solid transparent;
+                border-radius:200px;
+                border-bottom: 21px solid #888;
+                border-top: 21px solid #888;
+                animation: loader 0.5s infinite linear;
+            }
+            .loader::after{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border:18px solid transparent;
+                border-radius:200px;
+                border:20px solid transparent; 
+                margin-top: 20px;
+                margin-left: 20px;
+                border-left: 20px solid #666;
+                border-right: 20px solid #666;
+                animation: loader2 2s infinite linear;
+            }
+
+            @keyframes loader{
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(359deg);
+                }
+            }
+            @keyframes loader1{
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(359deg);
+                }
+            }
+            @keyframes loader2{
+                from{
+                    transform: rotate(0deg);
+                }
+                to{
+                    transform: rotate(359deg);
+                }
+            }
+            label{
+            padding-top:10px;
+                text-align: center;
+                animation: label 0.5s infinite linear;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-family:monospace;
+            }
+            @keyframes label{
+                0%{
+                    opacity: 0;
+                    color: red;
+                }
+                100%{
+                    opacity: 1;
+                    color: lime;
+                }
+            }
+
+</style>
+    <title> loader part II</title>
+</head>
+    <body>
+        <div class="position">
+          <div class="loader"></div>
+      <label>loading . . .</label>
+        </div>
+    </body> 
+</html>

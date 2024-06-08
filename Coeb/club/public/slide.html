@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+    .slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+</style>
+</head>
+<body>
+
+<div class="slider">
+  <div class="slides">
+    <img src="Img/Slide/1.png" alt="Slide 1">
+    <img src="Img/Slide/2.png" alt="Slide 2">
+    <img src="Img/Slide/3.png" alt="Slide 3">
+    <img src="Img/Slide/4.png" alt="Slide 4">
+    <img src="Img/Slide/5.png" alt="Slide 5">
+    <img src="Img/Slide/6.png" alt="Slide 6">
+  </div>
+</div>
+
+<script src="slide.js"></script>
+</body>
+</html>

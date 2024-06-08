@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        /* CSS for the .uploaded-image class */
+        #chat-img-display {
+            background-color: #ffe6a6;
+            position: relative;
+            display: inline-block;
+            height: 40%;
+        }
+
+        .uploaded-image {
+            max-width: 50%;
+            max-height: 100%;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        /* CSS for the .send-button class */
+        .send-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            top: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .send-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* CSS for the .image-container class */
+        .image-container {
+            text-align: center;
+        }
+
+        /* Style for the close icon */
+        .close-icon {
+            position: absolute;
+            top: 0px;
+            left:80px;
+            right: 0px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* Style for the send icon */
+        .send-icon {
+            margin-right: 5px;
+            font-size:25px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" accept="image/*" id="upload">
+    <div id="chat-img-display"></div>
+
+    <script type="text/javascript">
+        document.getElementById('upload').addEventListener('change', showImage);
+
+        function showImage(evt) {
+            var files = evt.target.files;
+            if (files.length === 0) {
+                console.log('No files selected');
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var img = new Image();
+                img.onload = function () {
+                    var chatDisplay = document.getElementById('chat-img-display');
+                    chatDisplay.innerHTML = ''; // Clear previous content
+
+                    // Create a container div
+                    var containerDiv = document.createElement('div');
+                    containerDiv.classList.add('image-container');
+
+                    // Create a close icon for hiding the image
+                    var closeIcon = document.createElement('i');
+                    closeIcon.classList.add('ri-close-circle-line', 'close-icon');
+                    closeIcon.addEventListener('click', function () {
+                        // Hide the image container and chat-display
+                        containerDiv.style.display = 'none';
+                        chatDisplay.style.display = 'none';
+                    });
+
+                    // Apply class names to elements
+                    img.classList.add('uploaded-image');
+                    containerDiv.appendChild(img);
+                    containerDiv.appendChild(closeIcon);
+
+                    var sendButton = document.createElement('button');
+                    sendButton.classList.add('send-button');
+                    sendButton.addEventListener('click', function () {
+                        // Handle sending the image here
+                        // You can access the image source with 'img.src'
+                        console.log('Sending image:', img.src);
+                    });
+
+                    // Create a send icon
+                    var sendIcon = document.createElement('i');
+                    sendIcon.classList.add('ri-send-plane-fill', 'send-icon');
+                    sendButton.appendChild(sendIcon);
+
+                    // Add text to the send button
+                    sendButton.appendChild(document.createTextNode('SEND'));
+
+                    containerDiv.appendChild(sendButton);
+
+                    chatDisplay.appendChild(containerDiv);
+                    chatDisplay.style.display = 'block';
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    </script>
+</body>
+
+</html>

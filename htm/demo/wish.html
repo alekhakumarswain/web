@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WISH YOU</title>
+<style type="text/css">
+*{
+	text-align:centre;
+}
+#dd{
+	color:blue;
+	font-size:33px;
+	font-family: 'Handlee', cursive;
+	text-align:centre;
+}
+</style>
+</head>
+<body onload="time()">
+ <p id="dd" alifn="centre"></p>
+ 
+ <script type="text/javascript">
+ function time(){
+ 		var today = new Date();
+ 		var h = today.getHours();
+ 		var m = today.getMinutes();
+ 		var s = today.getSeconds();
+ 		if(h>=0 && h<3){
+ 		document.getElementById("dd").innerHTML="GOOD NIGHT";
+ 		}
+ 		else if(h<11 && h>3){
+ 			document.getElementById("dd").innerHTML="GOOD MORNING";
+		 }
+	    else if(h<17 && h>14){
+	    document.getElementById("dd").innerHTML="GOOD AFTERNOON";
+		 }
+ 		else if(h<24 && h>17){
+			 document.getElementById("dd").innerHTML="GOOD EVENING";
+ 		}
+ 		else{
+ 			 document.getElementById("dd").innerHTML="HAVE A NICE DAY";
+ 		}
+ 	}
+ </script>
+</body>
+</html>

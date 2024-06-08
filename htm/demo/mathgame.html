@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    
+    font-family: 'italic', sans-serif;
+}
+h1 {
+    font-size: 40px;
+    letter-spacing: 5px;
+}
+header {
+    background-color:pink;
+    width: 90%;
+    border-radius: 10px;
+    margin: 5px auto 0 auto;
+    text-align: center;
+}
+.time {
+    width:100%;
+    height:5px;
+    background-color:#00E640;
+    border-radius:5px;
+}
+.question {
+    color: #00E640;
+    font-size:50px;
+    width: 90%;
+    margin:10px auto 0 auto;
+    text-align:center;
+}
+.list-choice {
+    border:1px solid #ccc;
+    width : 90%;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+}
+.submit {
+    width:90%;
+    background-color:green;
+    border:1px solid #ccc;
+    color:#fff;
+    border-radius:10px;
+    padding:10px;
+    margin : 20px 5%;
+    outline:none;
+    font-size:20px;
+}
+.list-choice span {
+    margin-left:10px;
+    font-size:20px;
+}
+
+.let-red {
+    color:#D91E18;
+}
+.let-green {
+    color: #00E640;
+}
+.let-blue {
+    color: #1E8BC3;
+}
+.let-orange {
+    color: #E87E04;
+}
+.let-yellow {
+    color: yellow;
+}
+    </style>
+        <title>MATH GAME</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+                <h1>
+                    <span class="let-red">M</span><span class="let-green">A</span><span class="let-blue">T</span><span class="let-orange">H</span> 
+                    <span class="let-yellow">G</span><span class="let-green">A</span><span class="let-red">M</span><span class="let-blue">E</span> 
+                </h1>
+                <div class="time"></div>
+        </header>
+        <div class="container">
+            <div class="question"><span id="operand-1">1</span> <span id="operator">+</span> <span id="operand-2">5</span></div>
+            <div class="list-of-choices">
+                <label><div class="list-choice"> <input type="radio" name="choices" class="choice" value="0"/> <span id="choice-0">answer 1</span></div></label>
+                <label><div class="list-choice"> <input type="radio" name="choices" class="choice"/> <span id="choice-1">answer 2</span></div></label>
+                <label><div class="list-choice"> <input type="radio" name="choices" class="choice"/> <span id="choice-2">answer 3</span></div></label>
+                <label><div class="list-choice"> <input type="radio" name="choices" class="choice"/> <span id="choice-3">answer 4</span></div></label>
+            </div>
+            <input type="submit" class="submit" id="submit"/>
+        </div>
+        
+        <script>
+            
+
+var choices = [12,5,6,9];
+var operand = [0,0];
+var timeValue = 100;
+window.onload = function() {
+    init();
+    document.querySelector('#submit').addEventListener('click', function() {
+        var listChoice = document.getElementsByClassName('choice');
+        for(var index = 0; index < listChoice.length;index++) {
+            if(listChoice[index].checked) {
+                if(parseInt(listChoice[index].value) === operand[0]+operand[1]) {
+                    displayResult('Correct!');
+                    timeValue = 100;
+                } else {
+                    displayResult('Wrong.');
+                }
+                listChoice[index].checked = false;
+            }
+        }
+        setTimeout(init,1500);
+    });
+    
+}
+
+function startTime() {
+    var time = document.querySelector('.time');
+    time.style.width = timeValue+'%';
+    
+    clearInterval(timeInterval);
+    var timeInterval = setInterval(function() {
+        timeValue--;
+        time.style.width = timeValue+'%';
+        if(timeValue <= 0) {
+            clearInterval(timeInterval);
+            gameOver();
+        }
+        document.querySelector('#submit').addEventListener('click', function() {
+        clearInterval(timeInterval);
+        });
+        
+    },120);
+}
+
+var gameOver = function() {
+    navigator.vibrate(250);
+    document.querySelector('.list-of-choices').style.display = 'none';
+    document.getElementById('submit').style.display = 'none';
+    document.querySelector('.question').style.marginTop = '40px';
+    document.querySelector('.question').style.color = 'red';
+    displayResult('Game Over!!');
+    setInterval(function() {
+        document.querySelector('.question').style.display = 'block';
+        setTimeout(function(){
+            document.querySelector('.question').style.display = 'none';
+        },250);
+        
+    },500);
+}
+
+var checkIfCorrect = function() {
+    var listChoice = document.getElementsByClassName('choice');
+        for(var index = 0; index < listChoice.length;index++) {
+            if(listChoice[index].checked) {
+                return parseInt(listChoice[index].value) === operand[0]+operand[1]
+            }
+        }
+}
+
+var displayResult = function(result) {
+    document.getElementById('operand-1').textContent = '';
+    document.getElementById('operand-2').textContent = '';
+    document.getElementById('operator').textContent = result;
+}
+
+function init() {
+    startTime();
+    
+    document.getElementById('operator').textContent = '+';
+    operand[0] = generateRandNum(20);
+    operand[1] = generateRandNum(20);
+    document.getElementById('operand-1').textContent = operand[0];
+    document.getElementById('operand-2').textContent = operand[1];
+    displayChoices();
+    
+}
+var displayChoices = function() {
+    var correctIndex = generateRandNum(4);
+    choices[0] = operand[0] + operand[1] + (generateRandNum(10)+1);
+    choices[1] = operand[0] + operand[1] - (generateRandNum(10)+1);
+    choices[2] = operand[0] + operand[1] + (generateRandNum(10)+1);
+    choices[3] = operand[0] + operand[1] - (generateRandNum(10)+1);
+    choices[correctIndex] = operand[0] + operand[1];
+    
+    var listChoice = document.getElementsByClassName('choice');
+    
+    for(var index = 0; index < listChoice.length;index++) {
+       listChoice[index].value = choices[index];
+    }
+    
+    for(var index = 0; index < choices.length;index++) {
+       document.getElementById('choice-'+index).textContent = choices[index];
+    }
+}
+var generateRandNum = function(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
+
+
+        </script>
+    </body>
+
+</html>
+

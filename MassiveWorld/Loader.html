@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <link rel="stylesheet" href="loader.css">
+  <style>
+    /* Additional styles for the skeleton and content sections can be added here */
+    body {
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+
+    .skeleton-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background-color: #fff;
+      animation: skeleton-loading 1.5s ease-in-out infinite;
+    }
+
+    @keyframes skeleton-loading {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loader Section -->
+  <div class="loader-container">
+    <img src="loader.gif" alt="Loader">
+  </div>
+  <script>
+    // Simulate loading time
+    setTimeout(function () {
+      document.body.innerHTML = '<div class="skeleton-container"></div>';
+      // Simulate skeleton loading time
+      setTimeout(function () {
+        // Replace the skeleton with the actual content
+        document.body.innerHTML = `
+          <!-- Actual Content Section -->
+          <header>
+            <!-- Your header content goes here -->
+          </header>
+          
+          <main>
+            <!-- Your main content goes here -->
+          </main>
+          
+          <footer>
+            <!-- Your footer content goes here -->
+          </footer>
+        `;
+      }, 5000); // 5 seconds for skeleton loading
+    }, 5000); // 5 seconds for loader
+  </script>
+</body>
+
+</html>

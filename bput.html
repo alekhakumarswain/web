@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check University Results</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Optional CSS for custom styling */
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Check University Results</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="resultForm">
+                    <div class="form-group">
+                        <label for="semester">Select Semester:</label>
+                        <select class="form-control" id="semester">
+                            <option value="default_option">Select Semester</option>
+                            <option value="Odd (2023-24)">Odd (2023-24) - Phase 3</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regNo">Registration Number:</label>
+                        <input type="text" class="form-control" id="regNo" placeholder="Enter Registration Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" class="form-control" id="dob">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Check Results</button>
+                    <button type="button" class="btn btn-secondary ml-2" onclick="resetForm()">Reset</button>
+                </form>
+                <div id="resultContainer" class="mt-4" style="display: none;">
+                    <!-- Result will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to handle form submission
+        $('#resultForm').submit(function (event) {
+            event.preventDefault(); // Prevent default form submission
+            var semester = $('#semester').val();
+            var regNo = $('#regNo').val();
+            var dob = $('#dob').val();
+            // Check if any field is empty
+            if (semester === 'default_option' || !regNo || !dob) {
+                alert('Please fill all fields');
+                return;
+            }
+            // AJAX request to fetch results
+            $.ajax({
+                type: 'POST',
+                url: 'https://exam.bput.ac.in/student-results-list', // Your API endpoint
+                data: JSON.stringify({ semester: semester, regNo: regNo, dob: dob }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    // Display results
+                    displayResults(data);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                    alert('Failed to fetch results. Please try again.');
+                }
+            });
+        });
+
+        // Function to display results
+        function displayResults(data) {
+            // Modify this function based on the structure of your API response
+            var resultContainer = $('#resultContainer');
+            resultContainer.empty(); // Clear previous results
+            // Assuming data is an array of result objects
+            data.forEach(function (result) {
+                var resultElement = $('<div class="card mt-2">').html(
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">' + result.subjectName + '</h5>' +
+                    '<p class="card-text">Grade: ' + result.grade + '</p>' +
+                    // Add more result details as needed
+                    '</div>'
+                );
+                resultContainer.append(resultElement);
+            });
+            resultContainer.show(); // Show result container
+        }
+
+        // Function to reset form
+        function resetForm() {
+            $('#resultForm')[0].reset(); // Reset form fields
+            $('#resultContainer').hide(); // Hide result container
+        }
+    </script>
+</body>
+
+</html>

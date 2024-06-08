@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Registration Number</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .result-card {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <input type="text" id="searchInput" class="form-control" placeholder="Enter Registration Number" aria-label="Enter Registration Number" aria-describedby="searchButton">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="searchButton">Search</button>
+          </div>
+        </div>
+        <div class="card result-card">
+          <div class="card-body">
+            <h5 class="card-title">Search Result</h5>
+            <p><strong>Regd. No:</strong> <span id="regdNo"></span></p>
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Branch:</strong> <span id="branch"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Sample data array
+    const data = [
+      { regdNo: "001", name: "John Doe", branch: "Computer Science" },
+      { regdNo: "002", name: "Jane Smith", branch: "Electrical Engineering" },
+      { regdNo: "003", name: "Bob Johnson", branch: "Mechanical Engineering" }
+      // Add more data as needed
+    ];
+
+    // Function to search for data based on registration number
+    function searchData(regdNo) {
+      return data.find(item => item.regdNo === regdNo);
+    }
+
+    // Function to display search result in the card
+    function displayResult(result) {
+      $('#regdNo').text(result.regdNo);
+      $('#name').text(result.name);
+      $('#branch').text(result.branch);
+      $('.result-card').show();
+    }
+
+    // Event listener for search button click
+    $('#searchButton').click(function() {
+      const regdNo = $('#searchInput').val().trim();
+      const result = searchData(regdNo);
+      if (result) {
+        displayResult(result);
+      } else {
+        alert("Registration number not found!");
+      }
+    });
+  </script>
+</body>
+</html>

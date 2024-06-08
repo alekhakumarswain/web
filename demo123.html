@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form with Firebase</title>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Initialize Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAuwSWEbnAjQQXBkFUTN1_FG9I69ZRMiM0",
+        authDomain: "coeb-farwell.firebaseapp.com",
+        projectId: "coeb-farwell",
+        storageBucket: "coeb-farwell.appspot.com",
+        messagingSenderId: "789337148979",
+        appId: "1:789337148979:web:5afdd8c55b3fd91a8f1d46",
+        measurementId: "G-NGSH11YLH3"
+        };
+
+        try {
+            const firebaseApp = initializeApp(firebaseConfig);
+            const database = getDatabase(firebaseApp);
+
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get form values
+                var name = document.getElementById('name').value;
+                var regNumber = document.getElementById('regNumber').value;
+                var year = document.getElementById('year').value;
+
+                // Push data to Firebase
+                push(ref(database, 'users'), {
+                    name: name,
+                    regNumber: regNumber,
+                    year: year
+                });
+
+                // Clear form fields
+                document.getElementById('name').value = '';
+                document.getElementById('regNumber').value = '';
+                document.getElementById('year').value = '';
+
+                alert('Data Submitted Successfully!');
+            });
+        } catch (error) {
+            console.error("Error initializing Firebase:", error);
+        }
+    </script>
+</head>
+<body>
+
+<!-- Registration Form -->
+<h2>Registration Form</h2>
+<form id="registrationForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="regNumber">Registration Number:</label>
+    <input type="text" id="regNumber" name="regNumber" required><br><br>
+
+    <label for="year">Select Year:</label>
+    <select id="year" name="year" required>
+        <option value="">Select</option>
+        <option value="1st">1st Year</option>
+        <option value="2nd">2nd Year</option>
+        <option value="3rd">3rd Year</option>
+        <option value="4th">4th Year</option>
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

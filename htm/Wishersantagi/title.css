@@ -1,0 +1,452 @@
+.title{
+	
+	}
+.a1{
+	font-size:25px;
+	animation:move-a1 2s linear infinite;
+	color:brown;
+	text-shadow: red 3px 0 1px;
+	}
+.a2{
+	font-size:25px;
+	animation:move-a2 2s linear infinite;
+	color:aqua;
+	text-shadow: red 3px 0 1px;
+	}
+.a3{
+	font-size:25px;
+	animation:move-a3 2s linear infinite;
+	color:blue;
+	text-shadow: red 3px 0 1px;
+	}
+.a4{
+	font-size:25px;
+	animation:move-a4 2s linear infinite;
+	color:green;
+	text-shadow: red 3px 0 1px;
+	}
+.a5{
+	font-size:25px;
+	animation:move-a5 2s linear infinite;
+	color:yellow;
+	text-shadow: red 3px 0 1px;
+	}
+.a6{
+	font-size:25px;
+	animation:move-a6 2s linear infinite;
+	color:purple;
+	padding-right:23px;
+	text-shadow: red 3px 0 1px;
+	}
+.a7{
+	font-size:25px;
+	animation:move-a7 2s linear infinite;
+	color:red;
+	text-shadow: red 3px 0 1px;
+	}
+.a8{
+	font-size:25px;
+	animation:move-a8 2s linear infinite;
+	color:white;
+	text-shadow: red 3px 0 1px;
+	}
+.a9{
+	font-size:25px;
+	animation:move-a9 2s linear infinite;
+	color:grey;
+	text-shadow: red 3px 0 1px;
+	}
+.a10{
+	font-size:25px;
+	animation:move-a10 2s linear infinite;
+	color:pink;
+	text-shadow: red 3px 0 1px;
+	}
+.a11{
+	font-size:25px;
+	animation:move-a11 2s linear infinite;
+	color:green;
+	text-shadow: white 3px 0 1px;
+	}
+.a12{
+	font-size:25px;
+	animation:move-a12 2s linear infinite;
+	color:blue;
+	text-shadow: aqua 3px 0 1px;
+	}
+.a13{
+	font-size:25px;
+	animation:move-a13 2s linear infinite;
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+		@keyframes move-a1{
+		0%,20%
+		{
+		color:aqua;
+		text-shadow: white 3px 0 1px;
+		font-size:20px;
+		}
+		20%,40%
+		{
+		color:pink;
+		text-shadow: yellow 3px 0 10px;
+		font-size:15px;
+		}
+		40%,60%
+		{
+		color:yellow;
+		text-shadow: blue 3px 0 1px;
+		font-size:10px;
+		}
+		60%,80%
+		{
+		color:blue;
+		text-shadow: white 3px 0 10px;
+		font-size:5px;
+		}
+		80%,100%
+		{
+		color:white;
+		text-shadow: green 3px 0 10px;
+		font-size:0px;
+		}
+		}
+		
+ @keyframes move-a2{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a3{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a4{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a5{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a6{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	font-size:20px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	font-size:15px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	font-size:10px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	font-size:5px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	font-size:0px;
+	}}
+@keyframes move-a7{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:white;
+	text-shadow: green 3px 0 10px;
+	}}
+@keyframes move-a8{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:pink;
+	text-shadow: silver 3px 0 10px;
+	}}
+@keyframes move-a9{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:red;
+	text-shadow: silver 3px 0 10px;
+	}}
+@keyframes move-a10{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:green;
+	text-shadow: red 3px 0 10px;
+	}}
+@keyframes move-a11{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}}
+@keyframes move-a12{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:aqua;
+	text-shadow: green 3px 0 10px;
+	}}
+@keyframes move-a13{
+	0%,20%
+	{
+	color:aqua;
+	text-shadow: white 3px 0 1px;
+	}
+	20%,40%
+	{
+	color:pink;
+	text-shadow: yellow 3px 0 10px;
+	}
+	40%,60%
+	{
+	color:yellow;
+	text-shadow: blue 3px 0 1px;
+	}
+	60%,80%
+	{
+	color:blue;
+	text-shadow: white 3px 0 10px;
+	}
+	80%,100%
+	{
+	color:purple;
+	text-shadow: green 3px 0 10px;
+	}}

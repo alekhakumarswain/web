@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chat App</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+	
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style type="text/css">
+        /* Default styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6a6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 2px;
+            text-align: center;
+            position:fixed;
+            width:100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            background-color: #e291a3 !important;
+            border-bottom: 1px solid #ccc;
+            padding: 2px;
+            position:fixed;
+        }
+
+        .navbar-brand {
+            font-family: 'Gagalin', cursive; /* Apply Gagalin font to the navbar title */
+            font-size: 24px; /* Adjust the font size as needed */
+        }
+
+        .navbar-brand .logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e291a3;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav ul li {
+            margin: 0 4px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2px;
+        }
+
+        /* Media queries for mobile devices */
+        @media only screen and (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Media queries for desktop devices */
+        @media only screen and (min-width: 601px) {
+            #chat {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #chat-display {
+                width: 100%;
+                margin:0px;
+            }
+
+            #chat-form {
+                width: 30%;
+            }
+        }
+		#chat-display{
+			margin:18% 0px 18% 0px;
+		}
+        .message-container {
+            display: flex;
+            flex-direction:row;
+            justify-content: flex-start;
+        }
+
+        .message {
+            border-radius: 0px 25px 25px 26px;
+            padding-left: 15px;
+            position: relative;
+            word-wrap: break-word;
+           }
+
+        .sent-message {
+        	border:2px solid #dddd;
+        	background-color:#e291a3;
+        	width:80%;
+        	margin-left:10%;
+        	margin-top:5px;
+            border-radius: 25px 0px 26px 25px;
+        }
+
+        .received-message {
+        	border:2px solid #ddd;
+        	background-color:#e291a3;
+        	width:80%;
+        	margin-top:5px;
+        	margin-left:10%;
+            border-radius: 0px 25px 25px 26px;
+        }
+
+
+
+        #chat-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 2px;
+            background-color: #e291a3;
+            border-top: 1px solid #333;
+            position: fixed;
+            bottom: 0; /* Place the chat input at the bottom */
+            left: 0;
+        }
+
+        #chat-message {
+            flex: 1;
+            padding: 0.1rem;
+            border-radius: 20px;
+            height: 4rem;
+            border: 2px solid red;
+            margin-right: 0.1rem;
+        }
+
+        button[type="submit"] {
+            //padding: 0.5rem 1rem;
+            background-color: #333;
+            height:4rem;
+            width:6.5rem;
+            background-size:cover;
+            color: #fff;
+            border: 2px solid black;
+            border-radius: 30px;
+            cursor: pointer;
+            appearance: none;
+            background-color: inherit;
+            background-image:url('https://raw.githubusercontent.com/alekhakumarswain/Bunnytalk/main/Img/send-button.gif');
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* Centered date styles */
+
+        .message-date {
+            text-align: center;
+        }
+
+        .time {
+            position: absolute;
+            top: 90%;
+            right: 10px;
+            font-size: 12px;
+            color: #1458;
+        }
+        .ilogo{
+        	height:40px;
+        }
+        .rlogo{
+        	position:absolute;
+        	margin-left:90%;
+        }
+        .llogo{
+        	position:absolute;
+        }
+        
+        #attach-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        }
+        
+        #attach-button .attachment {
+        display: inline-block;
+        cursor: pointer;
+        
+        }
+        .ri-attachment-line{
+        	font-size:35px;
+        }
+        
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <div class="logo">
+                    <img class="logo"
+                         src="https://raw.githubusercontent.com/alekhakumarswain/Bunnytalk/main/Img/jpg_20230722_224807_0000.jpg">
+                </div> <!-- Circular logo -->
+                BunnyTalk
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <section id="chat">
+        <div id="chat-display"></div>
+
+        <form id="chat-form">
+            <input type="text" id="chat-message" placeholder="Type your message">
+            <button id="attach-button" style="margin-top: 10px;">
+            <div class="attachment">
+            <span class=" ri-attachment-line "></span> <!-- Use the Remixicon class for the attachment icon -->
+            </div>
+            </button>
+            <input type="file" accept="image/*" id="file-input" style="display: none;">
+            <button type="submit"> </button>
+         </form>            
+    </section>
+</main>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script>
+    // Check if 'mname' is empty or not in local storage
+    var mname = localStorage.getItem('mname');
+
+    if (!mname) {
+        // If 'mname' is empty, redirect to login.html
+        window.location.href = 'reglogin.html';
+    }
+
+    // Initialize Firebase
+    var config = {
+        // Your Firebase configuration here
+        apiKey: "AIzaSyB4PXatCRA7I0Uvc8O2IXs13mbfY8NK-gY",
+        authDomain: "bunnytalk-db.firebaseapp.com",
+        projectId: "bunnytalk-db",
+        storageBucket: "bunnytalk-db.appspot.com",
+        messagingSenderId: "79115378372",
+        appId: "1:79115378372:web:e10a65a0f40b4a9448b391",
+        measurementId: "G-G4MWQCPKER"
+    };
+    firebase.initializeApp(config);
+
+    // Get a reference to the Firebase database
+    var database = firebase.database();
+	var storage = firebase.storage();
+	
+    // Get a reference to the "messages" collection in the database
+    var messagesRef = database.ref("messages");
+
+    // Variables to keep track of the last displayed date
+    var lastDate = null;
+    var dateFormatOptions = {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    };
+	
+	// Add an event listener to the "Attach File" button
+	document.getElementById("attach-button").addEventListener("click", function () {
+	// Trigger the file input click event
+	document.getElementById("file-input").click();
+	});
+	
+    // Listen for new messages and add them to the chat display
+    messagesRef.orderByChild("timestamp").on("child_added", function (snapshot) {
+        var message = snapshot.val();
+        var messageDate = new Date(message.timestamp);
+
+        // Format the date only if it's different from the last displayed date
+        if (!lastDate || messageDate.toDateString() !== lastDate.toDateString()) {
+            var formattedDate = messageDate.toLocaleDateString(undefined, dateFormatOptions);
+            var dateDisplay = "<div class='message-date'>" + formattedDate + "</div>";
+            document.getElementById("chat-display").innerHTML += dateDisplay;
+
+            // Update the last displayed date
+            lastDate = messageDate;
+        }
+		if (message.name === mname){
+			var logo = "<img  class='ilogo rlogo' src='https://raw.githubusercontent.com/alekhakumarswain/Bunnytalk/main/Img/jpg_20230722_224807_0000.jpg'>";
+		}else{
+			var logo = "<img  class='ilogo llogo' src='https://raw.githubusercontent.com/alekhakumarswain/Bunnytalk/main/Img/jpg_20230722_224807_0000.jpg'>";
+		}
+        var messageDisplay = logo+"<div class='message-container";
+        // Check if the message is sent by the current user
+        if (message.name === mname) {
+            messageDisplay += "message sent-message";
+        } else {
+            messageDisplay += "message received-message";
+        }
+        messageDisplay += "'><div class='message'><p><strong>" + message.name + "</strong><br> " + message.text + "<br><i class='time'>" + formatDate(messageDate) + "</i></p></div></div>";
+        document.getElementById("chat-display").innerHTML += messageDisplay;
+        
+    });
+
+    // Handle the form submission to add a new chat message
+    document.getElementById("chat-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var message = document.getElementById("chat-message").value;
+        if (message) {
+            messagesRef.push({
+                name: localStorage.getItem('mname'),
+                text: message,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            });
+            document.getElementById("chat-message").value = "";
+        }
+    });
+	
+	// Listen for changes in the file input
+	document.getElementById("file-input").addEventListener("change", function (event) {
+	const file = event.target.files[0]; // Get the selected file
+	
+	if (file) {
+	// Upload the file to Firebase Storage (make sure to initialize Firebase Storage)
+	const storageRef = firebase.storage().ref();
+	const fileRef = storageRef.child(file.name);
+	
+	fileRef.put(file)
+	.then((snapshot) => {
+	// Get the download URL of the uploaded file
+	return snapshot.ref.getDownloadURL();
+	})
+	.then((downloadURL) => {
+	// Send a message with the file download URL
+	const message = {
+	name: mname,
+	text: downloadURL, // Use the download URL as the message content
+	timestamp: firebase.database.ServerValue.TIMESTAMP,
+	};
+	
+	// Push the message to the Firebase Realtime Database
+	messagesRef.push(message);
+	
+	// Clear the file input
+	document.getElementById("file-input").value = null;
+	})
+	.catch((error) => {
+	console.error("Error uploading file: ", error);
+	});
+	}
+	
+	
+    // Format a date as a string (e.g. "3:30 PM on February 17, 2023")
+    function formatDate(date) {
+        var hours = date.getHours() % 12 || 12;
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? "PM" : "AM";
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var monthIndex = date.getMonth();
+        var day = date.getDate();
+        var year = date.getFullYear();
+        return hours + ":" + (minutes < 10 ? "0" : "") + minutes + " " + ampm;
+    }
+</script>
+</body>
+</html>

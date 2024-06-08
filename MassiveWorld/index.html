@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Massive World - Web & App Development 🌐📱</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 56px;
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #fff;
+    }
+
+    .navbar-nav a {
+      color: #fff;
+    }
+
+    .navbar-brand img {
+      width: 50%; /* Set the width of your logo image */
+      height: auto; /* Maintain aspect ratio */
+      margin-right: 10px; /* Adjust as needed */
+    }
+
+    .navbar-nav a:hover {
+      color: #ffc107;
+    }
+
+    /* Page Content Styling */
+    .container {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    h1,
+    h2,
+    h4 {
+      color: #343a40;
+    }
+
+    p {
+      color: #6c757d;
+    }
+
+    /* Project Section Styling */
+    .card {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    /* Modal Styling */
+    .modal-content {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Clients Section Styling */
+    .rounded-circle {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .rounded-circle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #343a40;
+      color: #080707;
+      padding: 20px 0;
+      width: 100%;
+    }
+
+    /* Form Styling */
+    form {
+      margin-top: 20px;
+    }
+
+    /* Budget Section Styling */
+    .budget-section {
+      background-color: #ffc107;
+      color: #343a40;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    /* Center Button Styling */
+    .btn-center {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="./Img/logo.png" class="logo">
+     <!-- Massive World 🌐📱-->
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+     </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="modal" data-target="#appointmentModal">Book Appointment</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5">Welcome to Massive World! 🚀</h1>
+    <p class="lead">We specialize in website and app development. Let's turn your ideas into reality! 💡</p>
+
+    <!-- Project Section -->
+    <div class="container mt-5">
+      <h2>Our Projects</h2>
+
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="project1.jpg" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Project 1</h5>
+              <p class="card-text">A brief description of Project 1 goes here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="project2.jpg" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Project 2</h5>
+              <p class="card-text">A brief description of Project 2 goes here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more projects as needed -->
+
+      </div>
+    </div>
+
+    <!-- Combined Budget Section -->
+    <div class="container budget-section">
+      <h2>Explore Our Budgets 💰</h2>
+
+      <div class="row">
+        <!-- Basic Website -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Basic Website</h5>
+              <p class="card-text">Simple and elegant website design.</p>
+              <p class="card-text"><strong>Cost:</strong> $1000 - $3000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-Commerce Website -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">E-Commerce Website</h5>
+              <p class="card-text">Online store with secure payment features.</p>
+              <p class="card-text"><strong>Cost:</strong> $3000 - $8000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile App Development -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mobile App Development</h5>
+              <p class="card-text">Custom mobile application for iOS and Android.</p>
+              <p class="card-text"><strong>Cost:</strong> $8000 - $15000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive Web & App -->
+        <div class="col-lg-6 mt-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Responsive Web & App</h5>
+              <p class="card-text">Create a responsive website and a mobile app with consistent design.</p>
+              <p class="card-text"><strong>Cost:</strong> $12000 - $25000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comprehensive Web & App -->
+        <div class="col-lg-6 mt-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Comprehensive Web & App</h5>
+              <p class="card-text">Extensive features for both website and mobile application development.</p>
+              <p class="card-text"><strong>Cost:</strong> $25000 - $50000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more budgets as needed -->
+      </div>
+    </div>
+
+    <!-- Button to Open Appointment Modal -->
+    <button type="button" class="btn btn-primary btn-center mt-3" data-toggle="modal"
+      data-target="#appointmentModal">Book An Appointment 📅</button>
+
+    <!-- Appointment Modal -->
+    <!-- Appointment Modal -->
+<div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog" aria-labelledby="appointmentModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="appointmentModalLabel">Book An Appointment 📅</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Contact Form -->
+      <form action="#" method="post">
+        <!-- Name input -->
+        <div class="form-group">
+          <label for="appointmentName">Name:</label>
+          <input type="text" class="form-control" id="appointmentName" name="name" required>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-group">
+          <label for="appointmentEmail">Email:</label>
+          <input type="email" class="form-control" id="appointmentEmail" name="email" required>
+        </div>
+
+        <!-- Phone number input -->
+        <div class="form-group">
+          <label for="appointmentPhone">Phone Number:</label>
+          <input type="tel" class="form-control" id="appointmentPhone" name="phone" required>
+        </div>
+
+        <!-- Preferred date input -->
+        <div class="form-group">
+          <label for="appointmentDate">Preferred Date:</label>
+          <input type="date" class="form-control" id="appointmentDate" name="date" required>
+        </div>
+
+        <!-- Service type radio buttons -->
+        <div class="form-group">
+          <label>Service Type:</label>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="webService" name="serviceType" value="web">
+            <label class="form-check-label" for="webService">Web Development</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="appService" name="serviceType" value="app">
+            <label class="form-check-label" for="appService">App Development</label>
+          </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="webAppService" name="serviceType" value="webapp">
+            <label class="form-check-label" for="webAppService">Web & App Development Both</label>
+          </div>
+        </div>
+
+        <!-- Message textarea -->
+        <div class="form-group">
+          <label for="appointmentMessage">Message:</label>
+          <textarea class="form-control" id="appointmentMessage" name="message" rows="4" required></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-center">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+    <!-- Clients Section -->
+    <div class="container mt-5">
+      <h2>Our Clients</h2>
+
+      <div class="row">
+        <!-- Client 1 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="rounded-circle overflow-hidden">
+            <img class="img-fluid" src="client1.jpg" alt="Client 1">
+          </div>
+        </div>
+
+        <!-- Client 2 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="rounded-circle overflow-hidden">
+            <img class="img-fluid" src="client2.jpg" alt="Client 2">
+          </div>
+        </div>
+
+        <!-- Client 3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="rounded-circle overflow-hidden">
+            <img class="img-fluid" src="client3.jpg" alt="Client 3">
+          </div>
+        </div>
+
+        <!-- Client 4 -->
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="rounded-circle overflow-hidden">
+            <img class="img-fluid" src="client4.jpg" alt="Client 4">
+          </div>
+        </div>
+
+        <!-- Add more clients as needed -->
+      </div>
+    </div>
+
+  </div> <!-- Closing container for Page Content -->
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white mt-5">
+    <div class="container" style="width: 90%;">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <h4>Contact Us</h4>
+          <section class="container mt-5">
+            <form action="#" method="post">
+              <!-- Name input -->
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+
+              <!-- Message textarea -->
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-center">Submit</button>
+            </form>
+          </section>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4>Follow Us</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4>About Us</h4>
+          <p>Massive World is a leading provider of website and app development services.</p>
+          <p>Email: info@example.com</p>
+          <p>Phone: (123) 456-7890</p>    
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <p class="text-center">&copy; 2024 Massive World. All rights reserved. 🌐🚀</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

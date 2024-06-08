@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>College Of Engineering Bhubaneswar CLUB Registration Form</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo on the left side 
+            <a class="navbar-brand" href="#">
+                <img src="https://www.koustuvgroup.ac.in/images/kgi-silver-jubli-Logo.png" alt="Your Logo">
+            </a>-->
+            <span class="blood-bond"><u>Trojan</u> </span>
+            <!-- Navbar Toggler for Mobile -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- JOIN and LOGIN icons on the right side -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user-plus"></i> JOIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="fas fa-sign-in-alt"></i> LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main">
+        <!-- Responsive Container -->
+        <div class="container custom-container">
+            <div class="row club-form">
+                <!-- Image on the left, Content on the right for desktop -->
+                <div class="col-md-6" style="align-items: center;display: block;margin-top: auto;margin-bottom: auto;">
+                    <img src="side.png"  alt="Your Image" class="img-fluid custom-image">
+                </div>
+                <div class="col-md-6 LoginForm">
+                    <fieldset>
+                        <legend>
+                            <h2 class="text-center"><u> Club Login Form</u></h2>
+                        </legend>
+                    <form id="clubLoginForm">
+                        <div id="page1">    
+                            <div class="form-group">
+                                <label for="registrationNumber">Registration Number:</label>
+                                <span class="input-icon"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="registrationNumber" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <span class="input-icon"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary float-right">Login</button>
+                    </form>
+                    </fieldset>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <!-- Your Firebase configuration script -->
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript for login -->
+    <script>
+        var firebaseConfig = {
+    apiKey: "AIzaSyAuwSWEbnAjQQXBkFUTN1_FG9I69ZRMiM0",
+    authDomain: "coeb-farwell.firebaseapp.com",
+    projectId: "coeb-farwell",
+    storageBucket: "coeb-farwell.appspot.com",
+    messagingSenderId: "789337148979",
+    appId: "1:789337148979:web:5afdd8c55b3fd91a8f1d46",
+    measurementId: "G-NGSH11YLH3"
+  };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the database service
+        var database = firebase.database();
+
+        // Add event listener to the login form submission
+        document.getElementById('clubLoginForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get form values
+            var registrationNumber = document.getElementById('registrationNumber').value;
+            var password = document.getElementById('password').value;
+
+            // Authenticate the user with Firebase
+            firebase.auth().signInWithEmailAndPassword(registrationNumber + '@coeb.ac.in', password)
+                .then((userCredential) => {
+                    // Signed in successfully
+                    var user = userCredential.user;
+                    console.log(user);
+                    // Redirect to a dashboard or another page upon successful login
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    // Handle errors
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.error('Login error:', errorMessage);
+                    alert('Login failed. Please check your credentials and try again.');
+                });
+        });
+    </script>
+
+</body>
+
+</html>
