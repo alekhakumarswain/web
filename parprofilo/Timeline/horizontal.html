@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/d06c559023.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Andika&family=Montserrat:wght@300;400;500;600&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Horizontal Timeline</title>
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
+<script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="down-arrow"></div>
+      <h3><i class="far fa-user"></i> Name Surname / Company Name</h3>
+      <h1>VERTICAL TIMELINE</h1>
+    </header>
+    <div id="timeline-embed"></div>
+<script>
+  var timeline_json = {
+    "title": {
+      "media": {
+        "url": "https://example.com/image.jpg",
+        "caption": "Caption text"
+      },
+      "text": {
+        "headline": "Timeline Title",
+        "text": "<p>Timeline description.</p>"
+      }
+    },
+    "events": [
+      {
+        "media": {
+          "url": "https://example.com/image1.jpg",
+          "caption": "Fallen Love With Rabbit"
+        },
+        "start_date": {
+          "year": "2023",
+          "month": "1",
+          "day": "26"
+        },
+        "text": {
+          "headline": "Step 1",
+          "text": "<p>Fill the Application Form Before the last date</p>"
+        }
+      },
+      {
+        "media": {
+          "url": "https://example.com/image2.jpg",
+          "caption": "Caption text"
+        },
+        "start_date": {
+          "year": "2023",
+          "month": "2",
+          "day": "1"
+        },
+        "text": {
+          "headline": "Step 2",
+          "text": "<p>Upload Your Documents: Photograph, Signature & Marksheet</p>"
+        }
+      }
+      // More events...
+    ]
+  };
+
+  timeline = new TL.Timeline('timeline-embed', timeline_json);
+</script>
+
+    <script src="main.js"></script>
+  </body>
+</html>

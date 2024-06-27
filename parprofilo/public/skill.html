@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Section</title>
+    <style>
+        .skills-section {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .skills-section div {
+            margin-bottom: 10px;
+        }
+        .icon {
+            font-family: "Arial", sans-serif; /* Ensure icon font is consistent */
+            margin-right: 5px;
+        }
+        .category {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .subcategory {
+            margin-left: 20px;
+        }
+        .skill-icon {
+            width: 24px; /* Adjust size as needed */
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="skills-section" id="skills-section"></div>
+
+    <script>
+        // Fetch JSON data from skills.json
+        fetch('assets/json/skills.json')
+            .then(response => response.json())
+            .then(data => generateSkillsHTML(data))
+            .catch(error => console.error('Error loading JSON:', error));
+
+        // Function to generate HTML from JSON data
+        function generateSkillsHTML(data) {
+            const section = document.getElementById('skills-section');
+            for (let category in data.skills) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category';
+                categoryDiv.innerHTML = `<span class="icon">👋</span>${category}:`;
+                section.appendChild(categoryDiv);
+
+                const subcategoryDiv = document.createElement('div');
+                subcategoryDiv.className = 'subcategory';
+                
+                data.skills[category].forEach(skill => {
+                    const skillHTML = `<span class="icon">🐰</span><img src="${skill.icon}" class="skill-icon" alt="${skill.name} icon">${skill.name}`;
+                    subcategoryDiv.innerHTML += skillHTML + ', ';
+                });
+
+                // Remove trailing comma and space
+                subcategoryDiv.innerHTML = subcategoryDiv.innerHTML.slice(0, -2);
+
+                section.appendChild(subcategoryDiv);
+            }
+        }
+    </script>
+</body>
+</html>
